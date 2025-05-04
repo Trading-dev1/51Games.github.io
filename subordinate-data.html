@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-04-28</span>
+                <span id="selectedDate">2025-05-04</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,6 +365,8 @@
     </div>
     <script>
         // --- Date Picker Logic ---
+        let pickerState = { year: 2025, month: 5, day: 4 };  // Changed from 4, 25
+
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
         const cancelDate = document.getElementById('cancelDate');
@@ -374,7 +376,7 @@
         const monthCol = document.getElementById('monthCol');
         const dayCol = document.getElementById('dayCol');
 
-        let pickerState = { year: 2025, month: 4, day: 25 };
+        selectedDateSpan.textContent = '2025-05-04';  // Changed from 2025-04-28
 
         // Data for specific dates (UPDATED)
         const statsData = {
@@ -551,6 +553,24 @@
                     numFirstDeposit: 108,
                     firstDepositAmount: 85210
                 }
+            },
+            "2025-04-28": {
+                "All": {
+                    depositNumber: 219,
+                    depositAmount: 953500,
+                    numBettors: 197,
+                    totalBet: 239402.92,
+                    numFirstDeposit: 184,
+                    firstDepositAmount: 82840
+                },
+                "Tier 1": {
+                    depositNumber: 121,
+                    depositAmount: 62904,
+                    numBettors: 109,
+                    totalBet: 169420.94,
+                    numFirstDeposit: 113,
+                    firstDepositAmount: 52950
+                }
             }
         };
 
@@ -594,7 +614,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 3); // May 3, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 4); // May 4, 2025 (months are 0-based)
             
             if (year) {
                 let years = [];
@@ -642,7 +662,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 5, 3); // May 3, 2025
+                    const maxDate = new Date(2025, 5, 4); // May 4, 2025
                     
                     let isValid = true;
                     const tempDate = new Date(
@@ -654,7 +674,7 @@
                     // Modified validation to allow selection of May (month 5)
                     if (tempDate > maxDate || 
                         (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
-                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
+                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 4)) {
                         isValid = false;
                     }
                     
@@ -679,7 +699,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 3);
+                    const maxDate = new Date(2025, 5, 4);
                     
                     let isValid = true;
                     const tempDate = new Date(
@@ -691,7 +711,7 @@
                     // Same modified validation for scroll
                     if (tempDate > maxDate || 
                         (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
-                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
+                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 4)) {
                         isValid = false;
                     }
                     
@@ -942,12 +962,15 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             updateUIDCards();
+            // Initialize with May 4 data
+            const initialData = statsData['2025-05-04']['All'];
+            updateStatsBox(initialData);
         });
 
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const today = new Date(2025, 4, 3); // May 3, 2025 (months are 0-based)
+            const today = new Date(2025, 5, 4); // May 4, 2025 (months are 0-based)
             
             return selectedDate <= today;
         }
@@ -965,7 +988,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '3';
+                    document.querySelector('[name="day"]').value = '4';
                     e.preventDefault();
                     return false;
                 }
@@ -975,7 +998,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '3';
+        document.querySelector('[name="day"]').max = '4';
     </script>
 </body>
 </html>
