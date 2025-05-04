@@ -378,30 +378,179 @@
 
         // Data for specific dates (UPDATED)
         const statsData = {
-            "2025-04-26": {
-                depositNumber: 0,
-                depositAmount: 0,
-                numBettors: 0,
-                totalBet: 0,
-                numFirstDeposit: 0,
-                firstDepositAmount: 0
+            uidCards: [
+                {
+                    uid: "3719675",
+                    level: 1,
+                    depositAmount: 3820,
+                    betAmount: 7842,
+                    commission: 32.94,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "379529",
+                    level: 1,
+                    depositAmount: 2500,
+                    betAmount: 5219,
+                    commission: 27.36,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "371693",
+                    level: 1,
+                    depositAmount: 1000,
+                    betAmount: 3281,
+                    commission: 18.92,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "379351",
+                    level: 1,
+                    depositAmount: 4550,
+                    betAmount: 12963,
+                    commission: 41.29,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "374529",
+                    level: 1,
+                    depositAmount: 10000,
+                    betAmount: 14920,
+                    commission: 73.85,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "374193",
+                    level: 2,
+                    depositAmount: 300,
+                    betAmount: 452,
+                    commission: 9.94,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "375942",
+                    level: 2,
+                    depositAmount: 500,
+                    betAmount: 962,
+                    commission: 13.46,
+                    time: "2025-05-03"
+                },
+                {
+                    uid: "369361",
+                    level: 2,
+                    depositAmount: 750,
+                    betAmount: 2194,
+                    commission: 16.94,
+                    time: "2025-05-03"
+                }
+            ],
+            "2025-05-04": {
+                "All": {
+                    depositNumber: 626,
+                    depositAmount: 504240,
+                    numBettors: 615,
+                    totalBet: 1863935.96,
+                    numFirstDeposit: 585,
+                    firstDepositAmount: 421855
+                },
+                "Tier 1": {
+                    depositNumber: 234,
+                    depositAmount: 182590,
+                    numBettors: 224,
+                    totalBet: 782546.91,
+                    numFirstDeposit: 210,
+                    firstDepositAmount: 126530
+                }
             },
             "2025-05-03": {
-                depositNumber: 0,
-                depositAmount: 0,
-                numBettors: 0,
-                totalBet: 0,
-                numFirstDeposit: 0,
-                firstDepositAmount: 0,
-                uidCards: [
-                    {
-                        uid: "3719306",
-                        level: 1,
-                        depositAmount: 0,
-                        commission: 0,
-                        time: "2025-05-03"
-                    }
-                ]
+                "All": {
+                    depositNumber: 568,
+                    depositAmount: 428610,
+                    numBettors: 543,
+                    totalBet: 1287310.83,
+                    numFirstDeposit: 518,
+                    firstDepositAmount: 386520
+                },
+                "Tier 1": {
+                    depositNumber: 207,
+                    depositAmount: 158360,
+                    numBettors: 201,
+                    totalBet: 782510.29,
+                    numFirstDeposit: 185,
+                    firstDepositAmount: 123853
+                }
+            },
+            "2025-05-02": {
+                "All": {
+                    depositNumber: 519,
+                    depositAmount: 378520,
+                    numBettors: 496,
+                    totalBet: 952917.23,
+                    numFirstDeposit: 482,
+                    firstDepositAmount: 326840
+                },
+                "Tier 1": {
+                    depositNumber: 182,
+                    depositAmount: 126385,
+                    numBettors: 175,
+                    totalBet: 672978.91,
+                    numFirstDeposit: 173,
+                    firstDepositAmount: 108350
+                }
+            },
+            "2025-05-01": {
+                "All": {
+                    depositNumber: 412,
+                    depositAmount: 298640,
+                    numBettors: 396,
+                    totalBet: 946738.917,
+                    numFirstDeposit: 385,
+                    firstDepositAmount: 253550
+                },
+                "Tier 1": {
+                    depositNumber: 168,
+                    depositAmount: 135290,
+                    numBettors: 153,
+                    totalBet: 853147.54,
+                    numFirstDeposit: 150,
+                    firstDepositAmount: 112518
+                }
+            },
+            "2025-04-30": {
+                "All": {
+                    depositNumber: 469,
+                    depositAmount: 628487,
+                    numBettors: 435,
+                    totalBet: 1753982.97,
+                    numFirstDeposit: 429,
+                    firstDepositAmount: 328753
+                },
+                "Tier 1": {
+                    depositNumber: 213,
+                    depositAmount: 245370,
+                    numBettors: 204,
+                    totalBet: 1287485.932,
+                    numFirstDeposit: 202,
+                    firstDepositAmount: 195284
+                }
+            },
+            "2025-04-29": {
+                "All": {
+                    depositNumber: 319,
+                    depositAmount: 173590,
+                    numBettors: 297,
+                    totalBet: 853910.75,
+                    numFirstDeposit: 295,
+                    firstDepositAmount: 148629
+                },
+                "Tier 1": {
+                    depositNumber: 127,
+                    depositAmount: 98520,
+                    numBettors: 116,
+                    totalBet: 291630.92,
+                    numFirstDeposit: 108,
+                    firstDepositAmount: 85210
+                }
             }
         };
 
@@ -493,7 +642,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 3);
+                    const maxDate = new Date(2025, 5, 3); // May 3, 2025
                     
                     let isValid = true;
                     const tempDate = new Date(
@@ -502,7 +651,10 @@
                         key === 'day' ? newValue : pickerState.day
                     );
                     
-                    if (tempDate > maxDate) {
+                    // Modified validation to allow selection of May (month 5)
+                    if (tempDate > maxDate || 
+                        (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
+                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
                         isValid = false;
                     }
                     
@@ -516,7 +668,7 @@
                 }
             });
             
-            // Update scroll handler similarly
+            // Update scroll handler with the same logic
             col.addEventListener('scroll', () => {
                 clearTimeout(col._scrollTimeout);
                 col._scrollTimeout = setTimeout(() => {
@@ -536,7 +688,10 @@
                         key === 'day' ? newValue : pickerState.day
                     );
                     
-                    if (tempDate > maxDate) {
+                    // Same modified validation for scroll
+                    if (tempDate > maxDate || 
+                        (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
+                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
                         isValid = false;
                     }
                     
@@ -585,13 +740,12 @@
             document.getElementById('firstDepositAmount').textContent = data.firstDepositAmount;
         }
 
-        function updateUIDCards(dateStr) {
+        function updateUIDCards() {
             const uidCardsContainer = document.getElementById('uidCards');
             uidCardsContainer.innerHTML = '';
             
-            const dateData = statsData[dateStr];
-            if (dateData && dateData.uidCards) {
-                dateData.uidCards.forEach(card => {
+            if (statsData.uidCards) {
+                statsData.uidCards.forEach(card => {
                     const cardHTML = `
                         <div style="background: white; margin: 15px; padding: 15px; border-radius: 8px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -608,6 +762,10 @@
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                                 <span style="color: #666;">Deposit amount</span>
                                 <span style="color: #ffcb2d;">${card.depositAmount}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: #666;">Bet amount</span>
+                                <span style="color: #ffcb2d;">${card.betAmount}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                                 <span style="color: #666;">Commission</span>
@@ -643,17 +801,10 @@
             const spinner = document.getElementById('loadingSpinner');
             spinner.style.display = 'block';
 
-            lastStats = {
-                depositNumber: document.getElementById('depositNumber').textContent,
-                depositAmount: document.getElementById('depositAmount').textContent,
-                numBettors: document.getElementById('numBettors').textContent,
-                totalBet: document.getElementById('totalBet').textContent,
-                numFirstDeposit: document.getElementById('numFirstDeposit').textContent,
-                firstDepositAmount: document.getElementById('firstDepositAmount').textContent
-            };
-
             setTimeout(() => {
-                const data = statsData[dateStr] || {
+                // Get data for selected date and current tier
+                const dateData = statsData[dateStr];
+                const data = dateData && dateData[selectedTier] ? dateData[selectedTier] : {
                     depositNumber: 0,
                     depositAmount: 0,
                     numBettors: 0,
@@ -661,8 +812,8 @@
                     numFirstDeposit: 0,
                     firstDepositAmount: 0
                 };
+                
                 updateStatsBox(data);
-                updateUIDCards(dateStr);
                 spinner.style.display = 'none';
                 document.getElementById('noData').style.display = '';
             }, 300);
@@ -731,6 +882,28 @@
             selectedTier = tempSelectedTier;
             selectedTierSpan.textContent = selectedTier;
             tierModalOverlay.classList.remove('active');
+
+            const spinner = document.getElementById('loadingSpinner');
+            spinner.style.display = 'block';
+
+            // Get current date from the date span
+            const currentDate = selectedDateSpan.textContent;
+
+            setTimeout(() => {
+                // Get data for current date and selected tier
+                const dateData = statsData[currentDate];
+                const data = dateData && dateData[selectedTier] ? dateData[selectedTier] : {
+                    depositNumber: 0,
+                    depositAmount: 0,
+                    numBettors: 0,
+                    totalBet: 0,
+                    numFirstDeposit: 0,
+                    firstDepositAmount: 0
+                };
+                
+                updateStatsBox(data);
+                spinner.style.display = 'none';
+            }, 300);
         };
 
         // Delegate click and scroll for tierCol
@@ -768,7 +941,7 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            updateUIDCards('2025-05-03');
+            updateUIDCards();
         });
 
         // Add this after your existing script
