@@ -376,7 +376,7 @@
         const monthCol = document.getElementById('monthCol');
         const dayCol = document.getElementById('dayCol');
 
-        selectedDateSpan.textContent = '2025-05-04';  // Changed from 2025-04-28
+        selectedDateSpan.textContent = '2025-05-05';  // Changed from 2025-04-28
 
         // Data for specific dates (UPDATED)
         const statsData = {
@@ -456,7 +456,25 @@
     { uid: "369361", level: 2, depositAmount: 750, betAmount: 2194, commission: 16.94, time: "2025-05-06" }
 
             ],
-            "2025-05-04": {
+            "2025-05-05": {
+    "All": {
+        depositNumber: 343,
+        depositAmount: 523970,
+        numBettors: 324,
+        totalBet: 1396430.36,
+        numFirstDeposit: 315,
+        firstDepositAmount: 429640
+    },
+    "Tier 1": {
+        depositNumber: 135,
+        depositAmount: 284220,
+        numBettors: 129,
+        totalBet: 594206,
+        numFirstDeposit: 123,
+        firstDepositAmount: 248280
+    }
+},
+"2025-05-04": {
                 "All": {
                     depositNumber: 626,
                     depositAmount: 504240,
@@ -624,7 +642,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 4); // May 4, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 5, 4); // May 4, 2025 (months are 0-based)
             
             if (year) {
                 let years = [];
@@ -672,7 +690,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 5, 4); // May 4, 2025
+                    const maxDate = new Date(2025, 5, 5; // May 4, 2025
                     
                     let isValid = true;
                     const tempDate = new Date(
