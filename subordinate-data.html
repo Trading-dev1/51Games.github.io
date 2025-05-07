@@ -321,12 +321,14 @@
             <div class="value" id="firstDepositAmount">0</div>
             <div>First deposit amount</div>
         </div>
-       
+    </div>
     <div id="uidCards">
         <!-- UID cards will be dynamically inserted here -->
     </div>
     <div class="loading-spinner" id="loadingSpinner"></div>
-    
+    <div class="no-data" id="noData">
+        Yesterday's commission
+    </div>
 
     <!-- Date Picker Modal -->
     <div class="date-modal-overlay" id="dateModalOverlay">
@@ -391,15 +393,7 @@
                     numBettors: 128,
                     totalBet: 953310.37,
                     numFirstDeposit: 130,
-                    firstDepositAmount: 179740,
-                    numRegister: 149,
-                    directCommission: 5425
-                },
-                "Team Data": {
-                    numRegister: 197,
-                    depositNumber: 185,
-                    depositAmount: 217712,
-                    numFirstDeposit: 176
+                    firstDepositAmount: 179740
                 },
                 uidCards: [
                     { uid: "3719675", level: 1, depositAmount: 3040, betAmount: 6832, commission: 42.19, time: "2025-05-06" },
@@ -608,13 +602,13 @@
             },
             "2025-04-26": {
                 "All": {
-                    depositNumber: 0,
-                    depositAmount: 0,
-                    numBettors: 0,
-                    totalBet: 0,
-                    numFirstDeposit: 0,
-                    firstDepositAmount: 0
-                },
+                depositNumber: 0,
+                depositAmount: 0,
+                numBettors: 0,
+                totalBet: 0,
+                numFirstDeposit: 0,
+                firstDepositAmount: 0
+            },
                 uidCards: []
             }
         };
@@ -728,10 +722,10 @@
                     
                     if (isValid) {
                         pickerState[key] = newValue;
-                        setSelected(col, e.target.dataset.value);
-                        if (key === 'year' || key === 'month') {
-                            // If year or month changes, update days column
-                            updatePickerCols({year:false, month:false, day:true});
+                    setSelected(col, e.target.dataset.value);
+                    if (key === 'year' || key === 'month') {
+                        // If year or month changes, update days column
+                        updatePickerCols({year:false, month:false, day:true});
                         }
                     }
                 }
@@ -765,9 +759,9 @@
                     
                     if (isValid) {
                         pickerState[key] = newValue;
-                        setSelected(col, closest.dataset.value);
-                        if ((key === 'year' || key === 'month') && isDayCol) {
-                            updatePickerCols({year:false, month:false, day:true});
+                    setSelected(col, closest.dataset.value);
+                    if ((key === 'year' || key === 'month') && isDayCol) {
+                        updatePickerCols({year:false, month:false, day:true});
                         }
                     }
                 }, 100);
@@ -807,9 +801,7 @@
                 numBettors: 0,
                 totalBet: 0,
                 numFirstDeposit: 0,
-                firstDepositAmount: 0,
-                numRegister: 0,
-                directCommission: 0
+                firstDepositAmount: 0
             };
             
             document.getElementById('depositNumber').textContent = tierData.depositNumber;
@@ -818,12 +810,6 @@
             document.getElementById('totalBet').textContent = tierData.totalBet;
             document.getElementById('numFirstDeposit').textContent = tierData.numFirstDeposit;
             document.getElementById('firstDepositAmount').textContent = tierData.firstDepositAmount;
-            
-            // The commission and team data values are fixed, not dependent on date selection
-            document.getElementById('yesterdayCommission').textContent = "629.37";
-            document.getElementById('weeklyCommission').textContent = "9707.12";
-            document.getElementById('totalCommission').textContent = "19495.57";
-            document.getElementById('totalSubordinates').textContent = "9965";
             
             // UID cards are at the date level, not the tier level
             updateUIDCards(data.uidCards || []);
@@ -895,12 +881,12 @@
             setTimeout(() => {
                 const data = statsData[dateStr] || {
                     "All": {
-                        depositNumber: 0,
-                        depositAmount: 0,
-                        numBettors: 0,
-                        totalBet: 0,
-                        numFirstDeposit: 0,
-                        firstDepositAmount: 0
+                    depositNumber: 0,
+                    depositAmount: 0,
+                    numBettors: 0,
+                    totalBet: 0,
+                    numFirstDeposit: 0,
+                    firstDepositAmount: 0
                     },
                     uidCards: []
                 };
@@ -908,7 +894,7 @@
                 spinner.style.display = 'none';
                 document.getElementById('noData').style.display = 'none';
                 if (!statsData[dateStr]) {
-                    document.getElementById('noData').style.display = '';
+                document.getElementById('noData').style.display = '';
                 }
             }, 300);
         };
@@ -1074,23 +1060,6 @@
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
         document.querySelector('[name="day"]').max = '4';
-
-        // Add default Team Data to all date entries to maintain consistency
-        for (const dateKey in statsData) {
-            if (statsData.hasOwnProperty(dateKey) && !statsData[dateKey]["Team Data"]) {
-                statsData[dateKey]["Team Data"] = {
-                    numRegister: 0,
-                    depositNumber: 0,
-                    depositAmount: 0,
-                    numFirstDeposit: 0
-                };
-            }
-            
-            if (statsData.hasOwnProperty(dateKey) && statsData[dateKey]["Tier 1"] && !statsData[dateKey]["Tier 1"].hasOwnProperty("numRegister")) {
-                statsData[dateKey]["Tier 1"].numRegister = 0;
-                statsData[dateKey]["Tier 1"].directCommission = 0;
-            }
-        }
     </script>
 </body>
-</html>
+</html> 
