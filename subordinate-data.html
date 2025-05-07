@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 5, day: 6 };
+        let pickerState = { year: 2025, month: 5, day: 7 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -682,7 +682,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 7); // May 6, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 5, 7); // May 6, 2025 (months are 0-based)
             
             // Only refill columns if needed
             if (year) {
@@ -732,7 +732,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 7); // May 6, 2025
+                    const maxDate = new Date(2025, 5, 7); // May 6, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -769,7 +769,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 7);
+                    const maxDate = new Date(2025, 5, 7);
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
