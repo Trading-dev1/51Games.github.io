@@ -1022,16 +1022,31 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            updateUIDCards();
-            // Initialize with May 4 data
-            const initialData = statsData['2025-05-04']['All'];
+            // Get the initial date from the selectedDateSpan
+            const initialDate = selectedDateSpan.textContent;
+            
+            // Get the data for the initial date
+            const initialData = statsData[initialDate] || {
+                "All": {
+                    depositNumber: 0,
+                    depositAmount: 0,
+                    numBettors: 0,
+                    totalBet: 0,
+                    numFirstDeposit: 0,
+                    firstDepositAmount: 0
+                },
+                uidCards: []
+            };
+            
+            // Update both the stats box and UID cards
             updateStatsBox(initialData);
+            updateUIDCards(initialData.uidCards || []);
         });
 
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const today = new Date(2025, 5, 4); // May 4, 2025 (months are 0-based)
+            const today = new Date(2025, 5, 6); // May 4, 2025 (months are 0-based)
             
             return selectedDate <= today;
         }
@@ -1049,7 +1064,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '4';
+                    document.querySelector('[name="day"]').value = '6';
                     e.preventDefault();
                     return false;
                 }
@@ -1059,7 +1074,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '4';
+        document.querySelector('[name="day"]').max = '6';
     </script>
 </body>
 </html> 
