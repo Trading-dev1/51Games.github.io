@@ -378,7 +378,36 @@
 
         // Data for specific dates
         const statsData = {
-            "2025-05-06": {
+            
+        "2025-05-07": {
+                "All": {
+                    depositNumber: 326,
+                    depositAmount: 540370,
+                    numBettors: 312,
+                    totalBet: 1745770.32,
+                    numFirstDeposit: 317,
+                    firstDepositAmount: 465070
+                },
+                "Tier 1": {
+                    depositNumber: 102,
+                    depositAmount: 154550,
+                    numBettors: 101,
+                    totalBet: 369740.94,
+                    numFirstDeposit: 100,
+                    firstDepositAmount: 129408
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 8520, betAmount: 14560, commission: 27.83, time: "2025-05-07" },
+                    { uid: "379529", level: 1, depositAmount: 56000, betAmount: 95320, commission: 142.78, time: "2025-05-07" },
+                    { uid: "371693", level: 1, depositAmount: 12000, betAmount: 16400, commission: 41.26, time: "2025-05-07" },
+                    { uid: "379351", level: 1, depositAmount: 2000, betAmount: 3290, commission: 19.47, time: "2025-05-07" },
+                    { uid: "374529", level: 1, depositAmount: 5500, betAmount: 12490, commission: 35.19, time: "2025-05-07" },
+                    { uid: "374193", level: 2, depositAmount: 640, betAmount: 1289, commission: 9.83, time: "2025-05-07" },
+                    { uid: "375942", level: 2, depositAmount: 740, betAmount: 1420, commission: 13.48, time: "2025-05-07" },
+                    { uid: "369361", level: 2, depositAmount: 950, betAmount: 2493, commission: 20.18, time: "2025-05-07" }
+                ]
+             },
+       "2025-05-06": {
                 "All": {
                     depositNumber: 319,
                     depositAmount: 496200,
@@ -653,7 +682,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 6); // May 6, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 7); // May 6, 2025 (months are 0-based)
             
             // Only refill columns if needed
             if (year) {
@@ -703,7 +732,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 6); // May 6, 2025
+                    const maxDate = new Date(2025, 4, 7); // May 6, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -740,7 +769,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 6);
+                    const maxDate = new Date(2025, 4, 7);
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
