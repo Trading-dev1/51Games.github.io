@@ -1075,7 +1075,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const today = new Date(2025, 5, 6); // May 4, 2025 (months are 0-based)
+            const today = new Date(2025, 5, 7); // May 4, 2025 (months are 0-based)
             
             return selectedDate <= today;
         }
@@ -1093,7 +1093,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '6';
+                    document.querySelector('[name="day"]').value = '7';
                     e.preventDefault();
                     return false;
                 }
