@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-05-16</span>
+                <span id="selectedDate">2025-05-17</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 5, day: 16 };
+        let pickerState = { year: 2025, month: 5, day: 17 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -378,35 +378,35 @@
 
         // Data for specific dates
         const statsData = {
-            "2025-05-16": {
+            "2025-05-17": {
                 "All": {
-                    depositNumber: 425,
-                    depositAmount: 389910,
-                    numBettors: 415,
-                    totalBet: 752814.24,
-                    numFirstDeposit: 412,
-                    firstDepositAmount: 279440
+                    depositNumber: 327,
+                    depositAmount: 340160,
+                    numBettors: 305,
+                    totalBet: 952146.53,
+                    numFirstDeposit: 324,
+                    firstDepositAmount: 286310
                 },
                 "Tier 1": {
-                    depositNumber: 207,
-                    depositAmount: 183530,
-                    numBettors: 204,
-                    totalBet: 452964.18,
-                    numFirstDeposit: 203,
-                    firstDepositAmount: 132760
+                    depositNumber: 126,
+                    depositAmount: 153810,
+                    numBettors: 124,
+                    totalBet: 318540.25,
+                    numFirstDeposit: 124,
+                    firstDepositAmount: 125830
                 },
                 uidCards: [
-                    { uid: "3719675", level: 1, depositAmount: 2000, betAmount: 8351, commission: 29.81, time: "2025-05-16" },
-                    { uid: "379529", level: 1, depositAmount: 3306, betAmount: 4285, commission: 30.97, time: "2025-05-16" },
-                    { uid: "371693", level: 1, depositAmount: 1800, betAmount: 3182, commission: 28.25, time: "2025-05-16" },
-                    { uid: "379351", level: 1, depositAmount: 8000, betAmount: 16830, commission: 40.26, time: "2025-05-16" },
-                    { uid: "374529", level: 1, depositAmount: 11000, betAmount: 21864, commission: 49.27, time: "2025-05-16" },
-                    { uid: "374193", level: 2, depositAmount: 5298, betAmount: 9628, commission: 31.45, time: "2025-05-16" },
-                    { uid: "375942", level: 2, depositAmount: 2530, betAmount: 4268, commission: 21.46, time: "2025-05-16" },
-                    { uid: "369361", level: 2, depositAmount: 1280, betAmount: 1963, commission: 10.25, time: "2025-05-16" }
+                    { uid: "3719675", level: 1, depositAmount: 2000, betAmount: 8185, commission: 22.67, time: "2025-05-17" },
+                    { uid: "379529", level: 1, depositAmount: 306, betAmount: 725, commission: 9.18, time: "2025-05-17" },
+                    { uid: "371693", level: 1, depositAmount: 1900, betAmount: 3268, commission: 29.18, time: "2025-05-17" },
+                    { uid: "379351", level: 1, depositAmount: 300, betAmount: 327, commission: 7.81, time: "2025-05-17" },
+                    { uid: "374529", level: 1, depositAmount: 13000, betAmount: 27839, commission: 31.62, time: "2025-05-17" },
+                    { uid: "374193", level: 2, depositAmount: 4183, betAmount: 7538, commission: 19.81, time: "2025-05-17" },
+                    { uid: "375942", level: 2, depositAmount: 2700, betAmount: 3186, commission: 19.83, time: "2025-05-17" },
+                    { uid: "369361", level: 2, depositAmount: 1350, betAmount: 1648, commission: 11.73, time: "2025-05-17" }
                 ]
             },
-            "2025-05-15": {
+            "2025-05-16": {
                 "All": {
                     depositNumber: 462,
                     depositAmount: 436170,
@@ -933,7 +933,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 16); // May 16, 2025
+            const maxDate = new Date(2025, 4, 17); // May 17, 2025
             
             // Only refill columns if needed
             if (year) {
@@ -983,7 +983,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 16); // May 16, 2025
+                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1020,7 +1020,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 16); // May 16, 2025
+                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1326,7 +1326,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 4, 16); // May 16, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 17); // May 17, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
@@ -1344,7 +1344,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '16';
+                    document.querySelector('[name="day"]').value = '17';
                     e.preventDefault();
                     return false;
                 }
@@ -1354,7 +1354,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '16';
+        document.querySelector('[name="day"]').max = '17';
     </script>
 </body>
 </html>
