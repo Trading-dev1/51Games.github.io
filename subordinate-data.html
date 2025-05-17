@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-04-28</span>
+                <span id="selectedDate">2025-05-17</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,6 +365,8 @@
     </div>
     <script>
         // --- Date Picker Logic ---
+        let pickerState = { year: 2025, month: 5, day: 17 };
+
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
         const cancelDate = document.getElementById('cancelDate');
@@ -374,76 +376,344 @@
         const monthCol = document.getElementById('monthCol');
         const dayCol = document.getElementById('dayCol');
 
-        let pickerState = { year: 2025, month: 4, day: 25 };
-
-        // Data for specific dates (UPDATED)
+        // Data for specific dates
         const statsData = {
-            uidCards: [
-                {
-                    uid: "3719675",
-                    level: 1,
-                    depositAmount: 3820,
-                    betAmount: 7842,
-                    commission: 32.94,
-                    time: "2025-05-03"
+            "2025-05-17": {
+                "All": {
+                    depositNumber: 327,
+                    depositAmount: 340160,
+                    numBettors: 305,
+                    totalBet: 952146.53,
+                    numFirstDeposit: 324,
+                    firstDepositAmount: 286310
                 },
-                {
-                    uid: "379529",
-                    level: 1,
-                    depositAmount: 2500,
-                    betAmount: 5219,
-                    commission: 27.36,
-                    time: "2025-05-03"
+                "Tier 1": {
+                    depositNumber: 126,
+                    depositAmount: 153810,
+                    numBettors: 124,
+                    totalBet: 318540.25,
+                    numFirstDeposit: 124,
+                    firstDepositAmount: 125830
                 },
-                {
-                    uid: "371693",
-                    level: 1,
-                    depositAmount: 1000,
-                    betAmount: 3281,
-                    commission: 18.92,
-                    time: "2025-05-03"
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2000, betAmount: 8185, commission: 22.67, time: "2025-05-17" },
+                    { uid: "379529", level: 1, depositAmount: 306, betAmount: 725, commission: 9.18, time: "2025-05-17" },
+                    { uid: "371693", level: 1, depositAmount: 1900, betAmount: 3268, commission: 29.18, time: "2025-05-17" },
+                    { uid: "379351", level: 1, depositAmount: 300, betAmount: 327, commission: 7.81, time: "2025-05-17" },
+                    { uid: "374529", level: 1, depositAmount: 13000, betAmount: 27839, commission: 31.62, time: "2025-05-17" },
+                    { uid: "374193", level: 2, depositAmount: 4183, betAmount: 7538, commission: 19.81, time: "2025-05-17" },
+                    { uid: "375942", level: 2, depositAmount: 2700, betAmount: 3186, commission: 19.83, time: "2025-05-17" },
+                    { uid: "369361", level: 2, depositAmount: 1350, betAmount: 1648, commission: 11.73, time: "2025-05-17" }
+                ]
+            },
+            "2025-05-16": {
+                "All": {
+                    depositNumber: 462,
+                    depositAmount: 436170,
+                    numBettors: 426,
+                    totalBet: 937136.93,
+                    numFirstDeposit: 404,
+                    firstDepositAmount: 384735
                 },
-                {
-                    uid: "379351",
-                    level: 1,
-                    depositAmount: 4550,
-                    betAmount: 12963,
-                    commission: 41.29,
-                    time: "2025-05-03"
+                "Tier 1": {
+                    depositNumber: 156,
+                    depositAmount: 263207,
+                    numBettors: 143,
+                    totalBet: 472850.36,
+                    numFirstDeposit: 148,
+                    firstDepositAmount: 216384
                 },
-                {
-                    uid: "374529",
-                    level: 1,
-                    depositAmount: 10000,
-                    betAmount: 14920,
-                    commission: 73.85,
-                    time: "2025-05-03"
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 1000, betAmount: 1733, commission: 13.79, time: "2025-05-15" },
+                    { uid: "379529", level: 1, depositAmount: 3100, betAmount: 4730, commission: 29.45, time: "2025-05-15" },
+                    { uid: "371693", level: 1, depositAmount: 1767, betAmount: 2895, commission: 24.73, time: "2025-05-15" },
+                    { uid: "379351", level: 1, depositAmount: 7400, betAmount: 12637, commission: 28.93, time: "2025-05-15" },
+                    { uid: "374529", level: 1, depositAmount: 10440, betAmount: 31648, commission: 26.72, time: "2025-05-15" },
+                    { uid: "374193", level: 2, depositAmount: 2500, betAmount: 4728, commission: 21.35, time: "2025-05-15" },
+                    { uid: "375942", level: 2, depositAmount: 423, betAmount: 736, commission: 10.36, time: "2025-05-15" },
+                    { uid: "369361", level: 2, depositAmount: 1375, betAmount: 2136, commission: 14.89, time: "2025-05-15" }
+                ]
+            },
+            "2025-05-14": {
+                "All": {
+                    depositNumber: 541,
+                    depositAmount: 568770,
+                    numBettors: 528,
+                    totalBet: 1254743.68,
+                    numFirstDeposit: 505,
+                    firstDepositAmount: 527430
                 },
-                {
-                    uid: "374193",
-                    level: 2,
-                    depositAmount: 300,
-                    betAmount: 452,
-                    commission: 9.94,
-                    time: "2025-05-03"
+                "Tier 1": {
+                    depositNumber: 184,
+                    depositAmount: 195830,
+                    numBettors: 182,
+                    totalBet: 325864.73,
+                    numFirstDeposit: 179,
+                    firstDepositAmount: 173564
                 },
-                {
-                    uid: "375942",
-                    level: 2,
-                    depositAmount: 500,
-                    betAmount: 962,
-                    commission: 13.46,
-                    time: "2025-05-03"
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2704, betAmount: 3196, commission: 11.63, time: "2025-05-14" },
+                    { uid: "379529", level: 1, depositAmount: 2700, betAmount: 3826, commission: 28.26, time: "2025-05-14" },
+                    { uid: "371693", level: 1, depositAmount: 9600, betAmount: 18630, commission: 25.63, time: "2025-05-14" },
+                    { uid: "379351", level: 1, depositAmount: 13000, betAmount: 25974, commission: 24.72, time: "2025-05-14" },
+                    { uid: "374529", level: 1, depositAmount: 11070, betAmount: 19337, commission: 31.38, time: "2025-05-14" },
+                    { uid: "374193", level: 2, depositAmount: 2200, betAmount: 3742, commission: 19.73, time: "2025-05-14" },
+                    { uid: "375942", level: 2, depositAmount: 550, betAmount: 859, commission: 8.28, time: "2025-05-14" },
+                    { uid: "369361", level: 2, depositAmount: 1429, betAmount: 1963, commission: 11.36, time: "2025-05-14" }
+                ]
+            },
+            "2025-05-13": {
+                "All": {
+                    depositNumber: 420,
+                    depositAmount: 763754,
+                    numBettors: 402,
+                    totalBet: 1786635.42,
+                    numFirstDeposit: 401,
+                    firstDepositAmount: 682149
                 },
-                {
-                    uid: "369361",
-                    level: 2,
-                    depositAmount: 750,
-                    betAmount: 2194,
-                    commission: 16.94,
-                    time: "2025-05-03"
-                }
-            ],
+                "Tier 1": {
+                    depositNumber: 153,
+                    depositAmount: 225460,
+                    numBettors: 142,
+                    totalBet: 439625.27,
+                    numFirstDeposit: 148,
+                    firstDepositAmount: 197420
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2510, betAmount: 2894, commission: 14.89, time: "2025-05-13" },
+                    { uid: "379529", level: 1, depositAmount: 2600, betAmount: 3284, commission: 22.17, time: "2025-05-13" },
+                    { uid: "371693", level: 1, depositAmount: 17000, betAmount: 32647, commission: 54.27, time: "2025-05-13" },
+                    { uid: "379351", level: 1, depositAmount: 1000, betAmount: 1684, commission: 15.29, time: "2025-05-13" },
+                    { uid: "374529", level: 1, depositAmount: 5200, betAmount: 9271, commission: 36.45, time: "2025-05-13" },
+                    { uid: "374193", level: 2, depositAmount: 2100, betAmount: 4285, commission: 21.57, time: "2025-05-13" },
+                    { uid: "375942", level: 2, depositAmount: 542, betAmount: 694, commission: 9.27, time: "2025-05-13" },
+                    { uid: "369361", level: 2, depositAmount: 1356, betAmount: 1748, commission: 12.35, time: "2025-05-13" }
+                ]
+            },
+            "2025-05-12": {
+                "All": {
+                    depositNumber: 396,
+                    depositAmount: 362860,
+                    numBettors: 375,
+                    totalBet: 952468.13,
+                    numFirstDeposit: 368,
+                    firstDepositAmount: 296545
+                },
+                "Tier 1": {
+                    depositNumber: 133,
+                    depositAmount: 153250,
+                    numBettors: 119,
+                    totalBet: 281795.72,
+                    numFirstDeposit: 113,
+                    firstDepositAmount: 128430
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2793, betAmount: 5328, commission: 26.19, time: "2025-05-12" },
+                    { uid: "379529", level: 1, depositAmount: 5190, betAmount: 9256, commission: 42.61, time: "2025-05-12" },
+                    { uid: "371693", level: 1, depositAmount: 12864, betAmount: 32864, commission: 56.72, time: "2025-05-12" },
+                    { uid: "379351", level: 1, depositAmount: 1455, betAmount: 2641, commission: 13.97, time: "2025-05-12" },
+                    { uid: "374529", level: 1, depositAmount: 5678, betAmount: 7964, commission: 31.64, time: "2025-05-12" },
+                    { uid: "374193", level: 2, depositAmount: 2250, betAmount: 2682, commission: 22.30, time: "2025-05-12" },
+                    { uid: "375942", level: 2, depositAmount: 574, betAmount: 963, commission: 13.51, time: "2025-05-12" },
+                    { uid: "369361", level: 2, depositAmount: 1750, betAmount: 3295, commission: 19.44, time: "2025-05-12" }
+                ]
+            },
+            "2025-05-11": {
+                "All": {
+                    depositNumber: 438,
+                    depositAmount: 752950,
+                    numBettors: 418,
+                    totalBet: 1864380.72,
+                    numFirstDeposit: 398,
+                    firstDepositAmount: 652940
+                },
+                "Tier 1": {
+                    depositNumber: 197,
+                    depositAmount: 286440,
+                    numBettors: 189,
+                    totalBet: 885240.53,
+                    numFirstDeposit: 182,
+                    firstDepositAmount: 236855
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2900, betAmount: 4582, commission: 31.74, time: "2025-05-11" },
+                    { uid: "379529", level: 1, depositAmount: 2500, betAmount: 2964, commission: 41.36, time: "2025-05-11" },
+                    { uid: "371693", level: 1, depositAmount: 14500, betAmount: 19460, commission: 69.53, time: "2025-05-11" },
+                    { uid: "379351", level: 1, depositAmount: 600, betAmount: 953, commission: 17.53, time: "2025-05-11" },
+                    { uid: "374529", level: 1, depositAmount: 5000, betAmount: 8520, commission: 38.26, time: "2025-05-11" },
+                    { uid: "374193", level: 2, depositAmount: 1800, betAmount: 2930, commission: 25.64, time: "2025-05-11" },
+                    { uid: "375942", level: 2, depositAmount: 620, betAmount: 786, commission: 16.29, time: "2025-05-11" },
+                    { uid: "369361", level: 2, depositAmount: 1293, betAmount: 2784, commission: 17.35, time: "2025-05-11" }
+                ]
+            },
+            "2025-05-10": {
+                "All": {
+                    depositNumber: 438,
+                    depositAmount: 752950,
+                    numBettors: 418,
+                    totalBet: 1864380.72,
+                    numFirstDeposit: 398,
+                    firstDepositAmount: 652940
+                },
+                "Tier 1": {
+                    depositNumber: 197,
+                    depositAmount: 286440,
+                    numBettors: 189,
+                    totalBet: 885240.53,
+                    numFirstDeposit: 182,
+                    firstDepositAmount: 236855
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 7000, betAmount: 13965.52, commission: 64.95, time: "2025-05-10" },
+                    { uid: "379529", level: 1, depositAmount: 2200, betAmount: 4829.29, commission: 38.26, time: "2025-05-10" },
+                    { uid: "371693", level: 1, depositAmount: 14900, betAmount: 24936.52, commission: 62.65, time: "2025-05-10" },
+                    { uid: "379351", level: 1, depositAmount: 950, betAmount: 1657.54, commission: 15.64, time: "2025-05-10" },
+                    { uid: "374529", level: 1, depositAmount: 5600, betAmount: 9730.34, commission: 36.74, time: "2025-05-10" },
+                    { uid: "374193", level: 2, depositAmount: 1700, betAmount: 2864.51, commission: 22.17, time: "2025-05-10" },
+                    { uid: "375942", level: 2, depositAmount: 780, betAmount: 1386, commission: 14.85, time: "2025-05-10" },
+                    { uid: "369361", level: 2, depositAmount: 1150, betAmount: 2394.52, commission: 26.43, time: "2025-05-10" }
+                ]
+            },
+            "2025-05-09": {
+                "All": {
+                    depositNumber: 548,
+                    depositAmount: 969140,
+                    numBettors: 522,
+                    totalBet: 3296440.38,
+                    numFirstDeposit: 518,
+                    firstDepositAmount: 852294
+                },
+                "Tier 1": {
+                    depositNumber: 145,
+                    depositAmount: 329740,
+                    numBettors: 128,
+                    totalBet: 753940.42,
+                    numFirstDeposit: 123,
+                    firstDepositAmount: 253205
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 1000, betAmount: 2593, commission: 19.37, time: "2025-05-09" },
+                    { uid: "379529", level: 1, depositAmount: 2000, betAmount: 4982, commission: 34.19, time: "2025-05-09" },
+                    { uid: "371693", level: 1, depositAmount: 15000, betAmount: 19640, commission: 102.48, time: "2025-05-09" },
+                    { uid: "379351", level: 1, depositAmount: 450, betAmount: 936, commission: 11.46, time: "2025-05-09" },
+                    { uid: "374529", level: 1, depositAmount: 1963, betAmount: 3945, commission: 52.91, time: "2025-05-09" },
+                    { uid: "374193", level: 2, depositAmount: 1490, betAmount: 3764, commission: 41.28, time: "2025-05-09" },
+                    { uid: "375942", level: 2, depositAmount: 650, betAmount: 1497, commission: 32.94, time: "2025-05-09" },
+                    { uid: "369361", level: 2, depositAmount: 1200, betAmount: 2483.75, commission: 25.84, time: "2025-05-09" }
+                ]
+            },
+            "2025-05-08": {
+                "All": {
+                    depositNumber: 451,
+                    depositAmount: 862405,
+                    numBettors: 432,
+                    totalBet: 2194460.27,
+                    numFirstDeposit: 434,
+                    firstDepositAmount: 752150
+                },
+                "Tier 1": {
+                    depositNumber: 121,
+                    depositAmount: 223201,
+                    numBettors: 109,
+                    totalBet: 429740.28,
+                    numFirstDeposit: 116,
+                    firstDepositAmount: 196306
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 820, betAmount: 1530, commission: 11.29, time: "2025-05-08" },
+                    { uid: "379529", level: 1, depositAmount: 46200, betAmount: 78400, commission: 127.49, time: "2025-05-08" },
+                    { uid: "371693", level: 1, depositAmount: 11000, betAmount: 17369, commission: 71.93, time: "2025-05-08" },
+                    { uid: "379351", level: 1, depositAmount: 2710, betAmount: 3298, commission: 13.29, time: "2025-05-08" },
+                    { uid: "374529", level: 1, depositAmount: 75000, betAmount: 10490, commission: 51.94, time: "2025-05-08" },
+                    { uid: "374193", level: 2, depositAmount: 655, betAmount: 1168, commission: 13.29, time: "2025-05-08" },
+                    { uid: "375942", level: 2, depositAmount: 743, betAmount: 1237, commission: 15.72, time: "2025-05-08" },
+                    { uid: "369361", level: 2, depositAmount: 850, betAmount: 2183, commission: 21.15, time: "2025-05-08" }
+                ]
+            },
+            "2025-05-07": {
+                "All": {
+                    depositNumber: 326,
+                    depositAmount: 540370,
+                    numBettors: 312,
+                    totalBet: 1745770.32,
+                    numFirstDeposit: 317,
+                    firstDepositAmount: 465070
+                },
+                "Tier 1": {
+                    depositNumber: 102,
+                    depositAmount: 154550,
+                    numBettors: 101,
+                    totalBet: 369740.94,
+                    numFirstDeposit: 100,
+                    firstDepositAmount: 129408
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 8520, betAmount: 14560, commission: 27.83, time: "2025-05-07" },
+                    { uid: "379529", level: 1, depositAmount: 56000, betAmount: 95320, commission: 142.78, time: "2025-05-07" },
+                    { uid: "371693", level: 1, depositAmount: 12000, betAmount: 16400, commission: 41.26, time: "2025-05-07" },
+                    { uid: "379351", level: 1, depositAmount: 2000, betAmount: 3290, commission: 19.47, time: "2025-05-07" },
+                    { uid: "374529", level: 1, depositAmount: 5500, betAmount: 12490, commission: 35.19, time: "2025-05-07" },
+                    { uid: "374193", level: 2, depositAmount: 640, betAmount: 1289, commission: 9.83, time: "2025-05-07" },
+                    { uid: "375942", level: 2, depositAmount: 740, betAmount: 1420, commission: 13.48, time: "2025-05-07" },
+                    { uid: "369361", level: 2, depositAmount: 950, betAmount: 2493, commission: 20.18, time: "2025-05-07" }
+                ]
+            },
+            "2025-05-06": {
+                "All": {
+                    depositNumber: 319,
+                    depositAmount: 496200,
+                    numBettors: 303,
+                    totalBet: 1696340.93,
+                    numFirstDeposit: 306,
+                    firstDepositAmount: 396250
+                },
+                "Tier 1": {
+                    depositNumber: 134,
+                    depositAmount: 278488,
+                    numBettors: 128,
+                    totalBet: 953310.37,
+                    numFirstDeposit: 130,
+                    firstDepositAmount: 179740
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 3040, betAmount: 6832, commission: 42.19, time: "2025-05-06" },
+                    { uid: "379529", level: 1, depositAmount: 2553, betAmount: 7294, commission: 29.91, time: "2025-05-06" },
+                    { uid: "371693", level: 1, depositAmount: 2000, betAmount: 5930, commission: 33.49, time: "2025-05-06" },
+                    { uid: "379351", level: 1, depositAmount: 6000, betAmount: 19404, commission: 109.916, time: "2025-05-06" },
+                    { uid: "374529", level: 1, depositAmount: 9500, betAmount: 28745, commission: 139.48, time: "2025-05-06" },
+                    { uid: "374193", level: 2, depositAmount: 305, betAmount: 632, commission: 12.49, time: "2025-05-06" },
+                    { uid: "375942", level: 2, depositAmount: 505, betAmount: 963, commission: 15.49, time: "2025-05-06" },
+                    { uid: "369361", level: 2, depositAmount: 757, betAmount: 1739, commission: 20.91, time: "2025-05-06" }
+                ]
+            },
+            "2025-05-05": {
+                "All": {
+                    depositNumber: 343,
+                    depositAmount: 523970,
+                    numBettors: 324,
+                    totalBet: 1396430.36,
+                    numFirstDeposit: 315,
+                    firstDepositAmount: 429640
+                },
+                "Tier 1": {
+                    depositNumber: 135,
+                    depositAmount: 284220,
+                    numBettors: 129,
+                    totalBet: 594206,
+                    numFirstDeposit: 123,
+                    firstDepositAmount: 248280
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2390, betAmount: 4530, commission: 17.29, time: "2025-05-05" },
+                    { uid: "379529", level: 1, depositAmount: 1950, betAmount: 4620, commission: 20.39, time: "2025-05-05" },
+                    { uid: "371693", level: 1, depositAmount: 2700, betAmount: 3974, commission: 27.94, time: "2025-05-05" },
+                    { uid: "379351", level: 1, depositAmount: 5520, betAmount: 14420, commission: 68.29, time: "2025-05-05" },
+                    { uid: "374529", level: 1, depositAmount: 8630, betAmount: 17530, commission: 68.25, time: "2025-05-05" },
+                    { uid: "374193", level: 2, depositAmount: 357, betAmount: 993, commission: 16.08, time: "2025-05-05" },
+                    { uid: "375942", level: 2, depositAmount: 450, betAmount: 917, commission: 23.59, time: "2025-05-05" },
+                    { uid: "369361", level: 2, depositAmount: 630, betAmount: 1295, commission: 46.29, time: "2025-05-05" }
+                ]
+            },
             "2025-05-04": {
                 "All": {
                     depositNumber: 626,
@@ -460,7 +730,17 @@
                     totalBet: 782546.91,
                     numFirstDeposit: 210,
                     firstDepositAmount: 126530
-                }
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 8530, betAmount: 14980, commission: 35.19, time: "2025-05-04" },
+                    { uid: "379529", level: 1, depositAmount: 23000, betAmount: 31940, commission: 94.39, time: "2025-05-04" },
+                    { uid: "371693", level: 1, depositAmount: 6930, betAmount: 14845, commission: 29.91, time: "2025-05-04" },
+                    { uid: "379351", level: 1, depositAmount: 38940, betAmount: 85305, commission: 194.29, time: "2025-05-04" },
+                    { uid: "374529", level: 1, depositAmount: 10740, betAmount: 23945, commission: 31.94, time: "2025-05-04" },
+                    { uid: "374193", level: 2, depositAmount: 1200, betAmount: 1940, commission: 25.46, time: "2025-05-04" },
+                    { uid: "375942", level: 2, depositAmount: 300, betAmount: 1063, commission: 21.42, time: "2025-05-04" },
+                    { uid: "369361", level: 2, depositAmount: 500, betAmount: 649, commission: 10.29, time: "2025-05-04" }
+                ]
             },
             "2025-05-03": {
                 "All": {
@@ -478,7 +758,17 @@
                     totalBet: 782510.29,
                     numFirstDeposit: 185,
                     firstDepositAmount: 123853
-                }
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2000, betAmount: 3561, commission: 23.92, time: "2025-05-03" },
+                    { uid: "379529", level: 1, depositAmount: 25000, betAmount: 34903, commission: 71.34, time: "2025-05-03" },
+                    { uid: "371693", level: 1, depositAmount: 6420, betAmount: 13470, commission: 54.59, time: "2025-05-03" },
+                    { uid: "379351", level: 1, depositAmount: 5000, betAmount: 6850, commission: 45.49, time: "2025-05-03" },
+                    { uid: "374529", level: 1, depositAmount: 8000, betAmount: 18756, commission: 64.29, time: "2025-05-03" },
+                    { uid: "374193", level: 2, depositAmount: 1640, betAmount: 2650, commission: 29.39, time: "2025-05-03" },
+                    { uid: "375942", level: 2, depositAmount: 700, betAmount: 1940, commission: 26.59, time: "2025-05-03" },
+                    { uid: "369361", level: 2, depositAmount: 1074, betAmount: 1940, commission: 12.94, time: "2025-05-03" }
+                ]
             },
             "2025-05-02": {
                 "All": {
@@ -496,7 +786,17 @@
                     totalBet: 672978.91,
                     numFirstDeposit: 173,
                     firstDepositAmount: 108350
-                }
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 5400, betAmount: 13937, commission: 51.36, time: "2025-05-02" },
+                    { uid: "379529", level: 1, depositAmount: 63930, betAmount: 194730, commission: 163.49, time: "2025-05-02" },
+                    { uid: "371693", level: 1, depositAmount: 6130, betAmount: 14950, commission: 54.19, time: "2025-05-02" },
+                    { uid: "379351", level: 1, depositAmount: 4000, betAmount: 5934, commission: 39.56, time: "2025-05-02" },
+                    { uid: "374529", level: 1, depositAmount: 16400, betAmount: 29506, commission: 87.49, time: "2025-05-02" },
+                    { uid: "374193", level: 2, depositAmount: 1300, betAmount: 2100, commission: 25.48, time: "2025-05-02" },
+                    { uid: "375942", level: 2, depositAmount: 750, betAmount: 1390, commission: 13.29, time: "2025-05-02" },
+                    { uid: "369361", level: 2, depositAmount: 1280, betAmount: 2394, commission: 16.78, time: "2025-05-02" }
+                ]
             },
             "2025-05-01": {
                 "All": {
@@ -514,7 +814,17 @@
                     totalBet: 853147.54,
                     numFirstDeposit: 150,
                     firstDepositAmount: 112518
-                }
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 200, betAmount: 492, commission: 9.82, time: "2025-05-01" },
+                    { uid: "379529", level: 1, depositAmount: 310, betAmount: 453, commission: 11.39, time: "2025-05-01" },
+                    { uid: "371693", level: 1, depositAmount: 2600, betAmount: 9420, commission: 31.26, time: "2025-05-01" },
+                    { uid: "379351", level: 1, depositAmount: 9710, betAmount: 13059, commission: 81.34, time: "2025-05-01" },
+                    { uid: "374529", level: 1, depositAmount: 15000, betAmount: 24634, commission: 63.19, time: "2025-05-01" },
+                    { uid: "374193", level: 2, depositAmount: 2400, betAmount: 3290, commission: 27.38, time: "2025-05-01" },
+                    { uid: "375942", level: 2, depositAmount: 800, betAmount: 1940, commission: 23.18, time: "2025-05-01" },
+                    { uid: "369361", level: 2, depositAmount: 1300, betAmount: 1684, commission: 23.19, time: "2025-05-01" }
+                ]
             },
             "2025-04-30": {
                 "All": {
@@ -551,6 +861,35 @@
                     numFirstDeposit: 108,
                     firstDepositAmount: 85210
                 }
+            },
+            "2025-04-28": {
+                "All": {
+                    depositNumber: 219,
+                    depositAmount: 953500,
+                    numBettors: 197,
+                    totalBet: 239402.92,
+                    numFirstDeposit: 184,
+                    firstDepositAmount: 82840
+                },
+                "Tier 1": {
+                    depositNumber: 121,
+                    depositAmount: 62904,
+                    numBettors: 109,
+                    totalBet: 169420.94,
+                    numFirstDeposit: 113,
+                    firstDepositAmount: 52950
+                }
+            },
+            "2025-04-26": {
+                "All": {
+                depositNumber: 0,
+                depositAmount: 0,
+                numBettors: 0,
+                totalBet: 0,
+                numFirstDeposit: 0,
+                firstDepositAmount: 0
+            },
+                uidCards: []
             }
         };
 
@@ -594,33 +933,35 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 3); // May 3, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 17); // May 17, 2025
             
+            // Only refill columns if needed
             if (year) {
                 let years = [];
-                for(let y = 2022; y <= maxDate.getFullYear(); y++) years.push(y);
+                for(let y=2022; y<=2025; y++) years.push(y);
                 fillPickerCol(yearCol, years, pickerState.year);
             }
             if (month) {
                 let months = [];
-                const maxMonth = pickerState.year === maxDate.getFullYear() ? 
-                    (maxDate.getMonth() + 1) : 12; // This will be 5 for May
-                for(let m = 1; m <= maxMonth; m++) months.push(pad(m));
+                for(let m=1; m<=12; m++) {
+                    // Skip future months in max year
+                    if (pickerState.year === maxDate.getFullYear() && m > maxDate.getMonth() + 1) continue;
+                    months.push(pad(m));
+                }
                 fillPickerCol(monthCol, months, pad(pickerState.month));
             }
             if (day) {
-                let maxDay;
-                if (pickerState.year === maxDate.getFullYear() && 
-                    pickerState.month === (maxDate.getMonth() + 1)) {
-                    maxDay = maxDate.getDate();
-                } else {
-                    maxDay = new Date(pickerState.year, pickerState.month, 0).getDate();
-                }
+                let daysInMonth = new Date(pickerState.year, pickerState.month, 0).getDate();
                 let days = [];
-                for(let d = 1; d <= maxDay; d++) days.push(pad(d));
+                for(let d=1; d<=daysInMonth; d++) {
+                    // Skip future days in max year and month
+                    if (pickerState.year === maxDate.getFullYear() && 
+                        pickerState.month === maxDate.getMonth() + 1 && 
+                        d > maxDate.getDate()) continue;
+                    days.push(pad(d));
+                }
                 fillPickerCol(dayCol, days, pad(pickerState.day));
             }
-            
             setTimeout(() => {
                 scrollToSelected(yearCol);
                 scrollToSelected(monthCol);
@@ -642,33 +983,33 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 5, 3); // May 3, 2025
+                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
                     
                     let isValid = true;
-                    const tempDate = new Date(
-                        key === 'year' ? newValue : pickerState.year,
-                        key === 'month' ? newValue - 1 : pickerState.month - 1,
-                        key === 'day' ? newValue : pickerState.day
-                    );
-                    
-                    // Modified validation to allow selection of May (month 5)
-                    if (tempDate > maxDate || 
-                        (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
-                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
+                    // Check if selection would exceed max date
+                    if (key === 'year' && newValue > maxDate.getFullYear()) {
+                        isValid = false;
+                    } else if (key === 'month' && 
+                              pickerState.year === maxDate.getFullYear() && 
+                              newValue > maxDate.getMonth() + 1) {
+                        isValid = false;
+                    } else if (key === 'day' && 
+                              pickerState.year === maxDate.getFullYear() && 
+                              pickerState.month === maxDate.getMonth() + 1 && 
+                              newValue > maxDate.getDate()) {
                         isValid = false;
                     }
                     
                     if (isValid) {
                         pickerState[key] = newValue;
-                        setSelected(col, e.target.dataset.value);
-                        if (key === 'year' || key === 'month') {
-                            updatePickerCols({year: false, month: false, day: true});
+                    setSelected(col, e.target.dataset.value);
+                    if (key === 'year' || key === 'month') {
+                        // If year or month changes, update days column
+                        updatePickerCols({year:false, month:false, day:true});
                         }
                     }
                 }
             });
-            
-            // Update scroll handler with the same logic
             col.addEventListener('scroll', () => {
                 clearTimeout(col._scrollTimeout);
                 col._scrollTimeout = setTimeout(() => {
@@ -679,27 +1020,28 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 3);
+                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
                     
                     let isValid = true;
-                    const tempDate = new Date(
-                        key === 'year' ? newValue : pickerState.year,
-                        key === 'month' ? newValue - 1 : pickerState.month - 1,
-                        key === 'day' ? newValue : pickerState.day
-                    );
-                    
-                    // Same modified validation for scroll
-                    if (tempDate > maxDate || 
-                        (pickerState.year === 2025 && key === 'month' && newValue > 5) ||
-                        (pickerState.year === 2025 && pickerState.month === 5 && key === 'day' && newValue > 3)) {
+                    // Check if scroll would exceed max date
+                    if (key === 'year' && newValue > maxDate.getFullYear()) {
+                        isValid = false;
+                    } else if (key === 'month' && 
+                              pickerState.year === maxDate.getFullYear() && 
+                              newValue > maxDate.getMonth() + 1) {
+                        isValid = false;
+                    } else if (key === 'day' && 
+                              pickerState.year === maxDate.getFullYear() && 
+                              pickerState.month === maxDate.getMonth() + 1 && 
+                              newValue > maxDate.getDate()) {
                         isValid = false;
                     }
                     
                     if (isValid) {
                         pickerState[key] = newValue;
-                        setSelected(col, closest.dataset.value);
-                        if ((key === 'year' || key === 'month') && isDayCol) {
-                            updatePickerCols({year: false, month: false, day: true});
+                    setSelected(col, closest.dataset.value);
+                    if ((key === 'year' || key === 'month') && isDayCol) {
+                        updatePickerCols({year:false, month:false, day:true});
                         }
                     }
                 }, 100);
@@ -732,20 +1074,33 @@
         };
 
         function updateStatsBox(data) {
-            document.getElementById('depositNumber').textContent = data.depositNumber;
-            document.getElementById('depositAmount').textContent = data.depositAmount;
-            document.getElementById('numBettors').textContent = data.numBettors;
-            document.getElementById('totalBet').textContent = data.totalBet;
-            document.getElementById('numFirstDeposit').textContent = data.numFirstDeposit;
-            document.getElementById('firstDepositAmount').textContent = data.firstDepositAmount;
+            // If data is coming directly from statsData, it will have tier structure
+            const tierData = data[selectedTier] || {
+                depositNumber: 0,
+                depositAmount: 0,
+                numBettors: 0,
+                totalBet: 0,
+                numFirstDeposit: 0,
+                firstDepositAmount: 0
+            };
+            
+            document.getElementById('depositNumber').textContent = tierData.depositNumber;
+            document.getElementById('depositAmount').textContent = tierData.depositAmount;
+            document.getElementById('numBettors').textContent = tierData.numBettors;
+            document.getElementById('totalBet').textContent = tierData.totalBet;
+            document.getElementById('numFirstDeposit').textContent = tierData.numFirstDeposit;
+            document.getElementById('firstDepositAmount').textContent = tierData.firstDepositAmount;
+            
+            // UID cards are at the date level, not the tier level
+            updateUIDCards(data.uidCards || []);
         }
 
-        function updateUIDCards() {
+        function updateUIDCards(uidCards) {
             const uidCardsContainer = document.getElementById('uidCards');
             uidCardsContainer.innerHTML = '';
             
-            if (statsData.uidCards) {
-                statsData.uidCards.forEach(card => {
+            if (uidCards && uidCards.length > 0) {
+                uidCards.forEach(card => {
                     const cardHTML = `
                         <div style="background: white; margin: 15px; padding: 15px; border-radius: 8px;">
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
@@ -798,24 +1153,29 @@
             selectedDateSpan.textContent = dateStr;
             dateModalOverlay.classList.remove('active');
 
+            // Show loading spinner
             const spinner = document.getElementById('loadingSpinner');
             spinner.style.display = 'block';
 
+            // Keep previous data for 0.3s, then update (increased by 0.2s)
             setTimeout(() => {
-                // Get data for selected date and current tier
-                const dateData = statsData[dateStr];
-                const data = dateData && dateData[selectedTier] ? dateData[selectedTier] : {
+                const data = statsData[dateStr] || {
+                    "All": {
                     depositNumber: 0,
                     depositAmount: 0,
                     numBettors: 0,
                     totalBet: 0,
                     numFirstDeposit: 0,
                     firstDepositAmount: 0
+                    },
+                    uidCards: []
                 };
-                
                 updateStatsBox(data);
                 spinner.style.display = 'none';
+                document.getElementById('noData').style.display = 'none';
+                if (!statsData[dateStr]) {
                 document.getElementById('noData').style.display = '';
+                }
             }, 300);
         };
 
@@ -890,15 +1250,16 @@
             const currentDate = selectedDateSpan.textContent;
 
             setTimeout(() => {
-                // Get data for current date and selected tier
-                const dateData = statsData[currentDate];
-                const data = dateData && dateData[selectedTier] ? dateData[selectedTier] : {
-                    depositNumber: 0,
-                    depositAmount: 0,
-                    numBettors: 0,
-                    totalBet: 0,
-                    numFirstDeposit: 0,
-                    firstDepositAmount: 0
+                const data = statsData[currentDate] || {
+                    "All": {
+                        depositNumber: 0,
+                        depositAmount: 0,
+                        numBettors: 0,
+                        totalBet: 0,
+                        numFirstDeposit: 0,
+                        firstDepositAmount: 0
+                    },
+                    uidCards: []
                 };
                 
                 updateStatsBox(data);
@@ -941,15 +1302,33 @@
         });
 
         window.addEventListener('DOMContentLoaded', () => {
-            updateUIDCards();
+            // Get the initial date from the selectedDateSpan
+            const initialDate = selectedDateSpan.textContent;
+            
+            // Get the data for the initial date
+            const initialData = statsData[initialDate] || {
+                "All": {
+                    depositNumber: 0,
+                    depositAmount: 0,
+                    numBettors: 0,
+                    totalBet: 0,
+                    numFirstDeposit: 0,
+                    firstDepositAmount: 0
+                },
+                uidCards: []
+            };
+            
+            // Update both the stats box and UID cards
+            updateStatsBox(initialData);
+            updateUIDCards(initialData.uidCards || []);
         });
 
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const today = new Date(2025, 4, 3); // May 3, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 17); // May 17, 2025 (months are 0-based)
             
-            return selectedDate <= today;
+            return selectedDate <= maxDate;
         }
 
         // Modify your date picker's click/change handlers
@@ -965,7 +1344,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '3';
+                    document.querySelector('[name="day"]').value = '17';
                     e.preventDefault();
                     return false;
                 }
@@ -975,7 +1354,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '3';
+        document.querySelector('[name="day"]').max = '17';
     </script>
 </body>
 </html>
