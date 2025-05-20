@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-05-17</span>
+                <span id="selectedDate">2025-05-19</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 5, day: 17 };
+        let pickerState = { year: 2025, month: 5, day: 19 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -378,6 +378,34 @@
 
         // Data for specific dates
         const statsData = {
+            "2025-05-19": {
+                "All": {
+                    depositNumber: 469,
+                    depositAmount: 492957,
+                    numBettors: 453,
+                    totalBet: 1754307.65,
+                    numFirstDeposit: 422,
+                    firstDepositAmount: 427540
+                },
+                "Tier 1": {
+                    depositNumber: 183,
+                    depositAmount: 165427,
+                    numBettors: 175,
+                    totalBet: 264430.19,
+                    numFirstDeposit: 157,
+                    firstDepositAmount: 135250
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 1350, betAmount: 1960, commission: 25.39, time: "2025-05-19" },
+                    { uid: "379529", level: 1, depositAmount: 452, betAmount: 784, commission: 11.27, time: "2025-05-19" },
+                    { uid: "371693", level: 1, depositAmount: 2300, betAmount: 4528, commission: 9.07, time: "2025-05-19" },
+                    { uid: "379351", level: 1, depositAmount: 750, betAmount: 1863, commission: 12.45, time: "2025-05-19" },
+                    { uid: "374529", level: 1, depositAmount: 12000, betAmount: 21864, commission: 27.53, time: "2025-05-19" },
+                    { uid: "374193", level: 2, depositAmount: 4900, betAmount: 8527, commission: 21.97, time: "2025-05-19" },
+                    { uid: "375942", level: 2, depositAmount: 3145, betAmount: 5870, commission: 12.84, time: "2025-05-19" },
+                    { uid: "369361", level: 2, depositAmount: 2200, betAmount: 2798, commission: 6.19, time: "2025-05-19" }
+                ]
+            },
             "2025-05-17": {
                 "All": {
                     depositNumber: 327,
@@ -890,6 +918,34 @@
                 firstDepositAmount: 0
             },
                 uidCards: []
+            },
+            "2025-05-18": {
+                "All": {
+                    depositNumber: 386,
+                    depositAmount: 469620,
+                    numBettors: 375,
+                    totalBet: 1185330.26,
+                    numFirstDeposit: 342,
+                    firstDepositAmount: 396440
+                },
+                "Tier 1": {
+                    depositNumber: 156,
+                    depositAmount: 105420,
+                    numBettors: 151,
+                    totalBet: 294104.25,
+                    numFirstDeposit: 148,
+                    firstDepositAmount: 102594
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 2200, betAmount: 9153, commission: 23.62, time: "2025-05-18" },
+                    { uid: "379529", level: 1, depositAmount: 310, betAmount: 673, commission: 7.62, time: "2025-05-18" },
+                    { uid: "371693", level: 1, depositAmount: 2200, betAmount: 3195, commission: 19.82, time: "2025-05-18" },
+                    { uid: "379351", level: 1, depositAmount: 500, betAmount: 972, commission: 8.85, time: "2025-05-18" },
+                    { uid: "374529", level: 1, depositAmount: 10630, betAmount: 19548, commission: 29.15, time: "2025-05-18" },
+                    { uid: "374193", level: 2, depositAmount: 5600, betAmount: 9635, commission: 18.26, time: "2025-05-18" },
+                    { uid: "375942", level: 2, depositAmount: 2800, betAmount: 3158, commission: 15.67, time: "2025-05-18" },
+                    { uid: "369361", level: 2, depositAmount: 1500, betAmount: 1865, commission: 9.18, time: "2025-05-18" }
+                ]
             }
         };
 
@@ -933,7 +989,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 17); // May 17, 2025
+            const maxDate = new Date(2025, 4, 19); // May 19, 2025
             
             // Only refill columns if needed
             if (year) {
@@ -983,7 +1039,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
+                    const maxDate = new Date(2025, 4, 19); // May 19, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1020,7 +1076,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 17); // May 17, 2025
+                    const maxDate = new Date(2025, 4, 19); // May 19, 2025
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1326,7 +1382,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 4, 17); // May 17, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 19); // May 19, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
@@ -1344,7 +1400,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '17';
+                    document.querySelector('[name="day"]').value = '19';
                     e.preventDefault();
                     return false;
                 }
@@ -1354,7 +1410,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '17';
+        document.querySelector('[name="day"]').max = '19';
     </script>
 </body>
 </html>
