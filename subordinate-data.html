@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-05-20</span>
+                <span id="selectedDate">2025-05-24</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 5, day: 20 };
+        let pickerState = { year: 2025, month: 5, day: 24 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -378,6 +378,34 @@
 
         // Data for specific dates
         const statsData = {
+            "2025-05-22": {
+                "All": {
+                    depositNumber: 227,
+                    depositAmount: 196320,
+                    numBettors: 219,
+                    totalBet: 429740.17,
+                    numFirstDeposit: 205,
+                    firstDepositAmount: 158320
+                },
+                "Tier 1": {
+                    depositNumber: 102,
+                    depositAmount: 128455,
+                    numBettors: 98,
+                    totalBet: 369750.28,
+                    numFirstDeposit: 100,
+                    firstDepositAmount: 107430
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 4600, betAmount: 2973, commission: 24.26, time: "2025-05-22" },
+                    { uid: "379529", level: 1, depositAmount: 950, betAmount: 1638, commission: 14.28, time: "2025-05-22" },
+                    { uid: "371693", level: 1, depositAmount: 3500, betAmount: 2980, commission: 15.27, time: "2025-05-22" },
+                    { uid: "379351", level: 1, depositAmount: 420, betAmount: 962, commission: 5.29, time: "2025-05-22" },
+                    { uid: "374529", level: 1, depositAmount: 10000, betAmount: 18632, commission: 31.26, time: "2025-05-22" },
+                    { uid: "374193", level: 2, depositAmount: 5500, betAmount: 9266, commission: 22.16, time: "2025-05-22" },
+                    { uid: "375942", level: 2, depositAmount: 310, betAmount: 972, commission: 9.16, time: "2025-05-22" },
+                    { uid: "369361", level: 2, depositAmount: 229, betAmount: 429, commission: 5.23, time: "2025-05-22" }
+                ]
+            },
             "2025-05-20": {
                 "All": {
                     depositNumber: 352,
@@ -1002,6 +1030,90 @@
                     { uid: "375942", level: 2, depositAmount: 423, betAmount: 736, commission: 10.36, time: "2025-05-15" },
                     { uid: "369361", level: 2, depositAmount: 1375, betAmount: 2136, commission: 14.89, time: "2025-05-15" }
                 ]
+            },
+            "2025-05-21": {
+                "All": {
+                    depositNumber: 316,
+                    depositAmount: 426840,
+                    numBettors: 318,
+                    totalBet: 952201.64,
+                    numFirstDeposit: 285,
+                    firstDepositAmount: 377540
+                },
+                "Tier 1": {
+                    depositNumber: 120,
+                    depositAmount: 146280,
+                    numBettors: 106,
+                    totalBet: 325997.26,
+                    numFirstDeposit: 116,
+                    firstDepositAmount: 119600
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 19900, betAmount: 38264, commission: 41.29, time: "2025-05-21" },
+                    { uid: "379529", level: 1, depositAmount: 2000, betAmount: 3268, commission: 16.29, time: "2025-05-21" },
+                    { uid: "371693", level: 1, depositAmount: 5190, betAmount: 7873, commission: 24.94, time: "2025-05-21" },
+                    { uid: "379351", level: 1, depositAmount: 2000, betAmount: 2574, commission: 15.68, time: "2025-05-21" },
+                    { uid: "374529", level: 1, depositAmount: 7500, betAmount: 14298, commission: 20.96, time: "2025-05-21" },
+                    { uid: "374193", level: 2, depositAmount: 2570, betAmount: 6869, commission: 17.21, time: "2025-05-21" },
+                    { uid: "375942", level: 2, depositAmount: 328, betAmount: 863, commission: 13.19, time: "2025-05-21" },
+                    { uid: "369361", level: 2, depositAmount: 310, betAmount: 582, commission: 6.52, time: "2025-05-21" }
+                ]
+            },
+            "2025-05-23": {
+                "All": {
+                    depositNumber: 182,
+                    depositAmount: 358420,
+                    numBettors: 180,
+                    totalBet: 8852206.92,
+                    numFirstDeposit: 172,
+                    firstDepositAmount: 296430
+                },
+                "Tier 1": {
+                    depositNumber: 99,
+                    depositAmount: 178640,
+                    numBettors: 96,
+                    totalBet: 392975.92,
+                    numFirstDeposit: 89,
+                    firstDepositAmount: 126843
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 3000, betAmount: 7820, commission: 17.49, time: "2025-05-23" },
+                    { uid: "379529", level: 1, depositAmount: 1000, betAmount: 1532, commission: 9.35, time: "2025-05-23" },
+                    { uid: "371693", level: 1, depositAmount: 5800, betAmount: 15930, commission: 17.83, time: "2025-05-23" },
+                    { uid: "379351", level: 1, depositAmount: 449, betAmount: 973, commission: 10.29, time: "2025-05-23" },
+                    { uid: "374529", level: 1, depositAmount: 19553, betAmount: 29430, commission: 25.90, time: "2025-05-23" },
+                    { uid: "374193", level: 2, depositAmount: 7020, betAmount: 18428, commission: 15.63, time: "2025-05-23" },
+                    { uid: "375942", level: 2, depositAmount: 150, betAmount: 298, commission: 2.42, time: "2025-05-23" },
+                    { uid: "369361", level: 2, depositAmount: 608, betAmount: 1298, commission: 4.29, time: "2025-05-23" }
+                ]
+            },
+            "2025-05-24": {
+                "All": {
+                    depositNumber: 312,
+                    depositAmount: 394900,
+                    numBettors: 302,
+                    totalBet: 819630.26,
+                    numFirstDeposit: 298,
+                    firstDepositAmount: 327430
+                },
+                "Tier 1": {
+                    depositNumber: 105,
+                    depositAmount: 126400,
+                    numBettors: 102,
+                    totalBet: 258632.97,
+                    numFirstDeposit: 101,
+                    firstDepositAmount: 106320
+                },
+                uidCards: [
+                    { uid: "3719675", level: 1, depositAmount: 20000, betAmount: 25329, commission: 51.37, time: "2025-05-24" },
+                    { uid: "379529", level: 1, depositAmount: 1500, betAmount: 2964, commission: 15.93, time: "2025-05-24" },
+                    { uid: "371693", level: 1, depositAmount: 4250, betAmount: 7529, commission: 21.35, time: "2025-05-24" },
+                    { uid: "379351", level: 1, depositAmount: 1000, betAmount: 1752, commission: 19.82, time: "2025-05-24" },
+                    { uid: "374529", level: 1, depositAmount: 14000, betAmount: 26530, commission: 35.27, time: "2025-05-24" },
+                    { uid: "374193", level: 2, depositAmount: 5000, betAmount: 7528, commission: 22.36, time: "2025-05-24" },
+                    { uid: "375942", level: 2, depositAmount: 300, betAmount: 850, commission: 12.84, time: "2025-05-24" },
+                    { uid: "369361", level: 2, depositAmount: 254, betAmount: 925, commission: 8.16, time: "2025-05-24" }
+                ]
             }
         };
 
@@ -1045,7 +1157,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 4, 20); // May 20, 2025
+            const maxDate = new Date(2025, 4, 24); // May 24, 2025
             
             // Only refill columns if needed
             if (year) {
@@ -1095,7 +1207,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 20); // May 20, 2025
+                    const maxDate = new Date(2025, 4, 24); // May 24, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1132,7 +1244,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 4, 20); // May 20, 2025
+                    const maxDate = new Date(2025, 4, 24); // May 24, 2025
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1438,7 +1550,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 4, 20); // May 20, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 4, 24); // May 24, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
@@ -1456,7 +1568,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '5';
-                    document.querySelector('[name="day"]').value = '20';
+                    document.querySelector('[name="day"]').value = '24';
                     e.preventDefault();
                     return false;
                 }
@@ -1466,7 +1578,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '5';
-        document.querySelector('[name="day"]').max = '20';
+        document.querySelector('[name="day"]').max = '24';
     </script>
 </body>
 </html>
