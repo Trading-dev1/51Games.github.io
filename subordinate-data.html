@@ -1404,7 +1404,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 4, 29); // May 26, 2025
+                    const maxDate = new Date(2025, 06, 01); // May 26, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
