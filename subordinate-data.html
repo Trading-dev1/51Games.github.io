@@ -1466,7 +1466,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 6, 5); // May 26, 2025
+            const maxDate = new Date(2025, 5, 5); // June 5, 2025 (month is 0-based)
             
             // Only refill columns if needed
             if (year) {
@@ -1516,7 +1516,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 6, 5); 
+                    const maxDate = new Date(2025, 5, 5); // June 5, 2025 (month is 0-based)
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1553,7 +1553,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 6, 5); // May 26, 2025
+                    const maxDate = new Date(2025, 5, 5); // June 5, 2025 (month is 0-based)
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1859,7 +1859,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 6, 5); // May 26, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 5, 5); // June 5, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
