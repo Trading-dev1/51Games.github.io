@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-06-3</span>
+                <span id="selectedDate">2025-06-05</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -1466,7 +1466,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 06, 03); // May 26, 2025
+            const maxDate = new Date(2025, 06, 3); // May 26, 2025
             
             // Only refill columns if needed
             if (year) {
@@ -1516,7 +1516,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 06, 03); // May 26, 2025
+                    const maxDate = new Date(2025, 06, 3); // May 26, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1553,7 +1553,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 06, 03); // May 26, 2025
+                    const maxDate = new Date(2025, 06, 3); // May 26, 2025
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1876,8 +1876,8 @@
                     alert('Cannot select future dates');
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
-                    document.querySelector('[name="month"]').value = '06';
-                    document.querySelector('[name="day"]').value = '03';
+                    document.querySelector('[name="month"]').value = '6';
+                    document.querySelector('[name="day"]').value = '3';
                     e.preventDefault();
                     return false;
                 }
@@ -1886,8 +1886,8 @@
 
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
-        document.querySelector('[name="month"]').max = '06';
-        document.querySelector('[name="day"]').max = '03';
+        document.querySelector('[name="month"]').max = '6';
+        document.querySelector('[name="day"]').max = '3';
     </script>
 </body>
 </html>
