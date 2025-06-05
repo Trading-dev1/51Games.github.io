@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 6, day: 3 };
+        let pickerState = { year: 2025, month: 6, day: 5 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -1466,7 +1466,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 06, 3); // May 26, 2025
+            const maxDate = new Date(2025, 06, 5); // May 26, 2025
             
             // Only refill columns if needed
             if (year) {
@@ -1516,7 +1516,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 06, 3); // May 26, 2025
+                    const maxDate = new Date(2025, 06, 5); // May 26, 2025
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -1553,7 +1553,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 06, 3); // May 26, 2025
+                    const maxDate = new Date(2025, 06, 5); // May 26, 2025
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -1859,7 +1859,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 06, 03); // May 26, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 06, 5); // May 26, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
@@ -1877,7 +1877,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '6';
-                    document.querySelector('[name="day"]').value = '3';
+                    document.querySelector('[name="day"]').value = '5';
                     e.preventDefault();
                     return false;
                 }
@@ -1887,7 +1887,7 @@
         // Additionally, set max values for the date inputs
         document.querySelector('[name="year"]').max = '2025';
         document.querySelector('[name="month"]').max = '6';
-        document.querySelector('[name="day"]').max = '3';
+        document.querySelector('[name="day"]').max = '5';
     </script>
 </body>
 </html>
