@@ -1522,7 +1522,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 5, 6); // June 5, 2025 (month is 0-based)
+            const maxDate = new Date(2025, 5, 7); // June 5, 2025 (month is 0-based)
             
             // Only refill columns if needed
             if (year) {
@@ -1609,7 +1609,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 5, 6); // June 5, 2025 (month is 0-based)
+                    const maxDate = new Date(2025, 5, 7); // June 5, 2025 (month is 0-based)
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
