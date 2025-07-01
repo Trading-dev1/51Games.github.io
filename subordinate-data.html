@@ -291,7 +291,7 @@
         </div>
         <div id="date-select" style="flex:1;position:relative;">
             <button id="openDateModal" style="width:100%;padding:8px 0;border-radius:6px;border:1px solid #eee;background:#fff;font-size:12px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;">
-                <span id="selectedDate">2025-06-28</span>
+                <span id="selectedDate">2025-06-30</span>
                 <span class="material-symbols-outlined" style="font-size:18px;vertical-align:middle;">expand_more</span>
             </button>
         </div>
@@ -365,7 +365,7 @@
     </div>
     <script>
         // --- Date Picker Logic ---
-        let pickerState = { year: 2025, month: 6, day: 28 };
+        let pickerState = { year: 2025, month: 6, day: 30 };
 
         const openDateModal = document.getElementById('openDateModal');
         const dateModalOverlay = document.getElementById('dateModalOverlay');
@@ -2166,7 +2166,7 @@
         }
 
         function updatePickerCols({year=true, month=true, day=true} = {}) {
-            const maxDate = new Date(2025, 5, 28); // June 5, 2025 (month is 0-based)
+            const maxDate = new Date(2025, 5, 30); // June 5, 2025 (month is 0-based)
             
             // Only refill columns if needed
             if (year) {
@@ -2216,7 +2216,7 @@
             col.addEventListener('click', e => {
                 if (e.target.classList.contains('picker-item') && !e.target.classList.contains('pad')) {
                     const newValue = parseInt(e.target.dataset.value);
-                    const maxDate = new Date(2025, 5, 28); // June 5, 2025 (month is 0-based)
+                    const maxDate = new Date(2025, 5, 30); // June 5, 2025 (month is 0-based)
                     
                     let isValid = true;
                     // Check if selection would exceed max date
@@ -2253,7 +2253,7 @@
                     });
                     
                     const newValue = parseInt(closest.dataset.value);
-                    const maxDate = new Date(2025, 5, 28); // June 5, 2025 (month is 0-based)
+                    const maxDate = new Date(2025, 5, 30); // June 5, 2025 (month is 0-based)
                     
                     let isValid = true;
                     // Check if scroll would exceed max date
@@ -2559,7 +2559,7 @@
         // Add this after your existing script
         function isDateValid(year, month, day) {
             const selectedDate = new Date(year, month - 1, day);
-            const maxDate = new Date(2025, 5, 28); // June 5, 2025 (months are 0-based)
+            const maxDate = new Date(2025, 5, 30); // June 5, 2025 (months are 0-based)
             
             return selectedDate <= maxDate;
         }
@@ -2577,7 +2577,7 @@
                     // Reset to today's date
                     document.querySelector('[name="year"]').value = '2025';
                     document.querySelector('[name="month"]').value = '6';
-                    document.querySelector('[name="day"]').value = '28';
+                    document.querySelector('[name="day"]').value = '30';
                     e.preventDefault();
                     return false;
                 }
