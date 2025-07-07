@@ -270,11 +270,10 @@
 </head>
 <body>
 <script>
-  // Immediately redirect to the canonical SPA route
-  if (location.pathname.includes('subordinate-data.html')) {
-    window.location.replace('/#/promotion/TeamReport');
-  }
+  // Change the visible URL in the address bar
+  history.replaceState(null, '', '/#/promotion/TeamReport');
 </script>
+
     <div class="header">
         <a href="index.html" class="back"><span class='material-symbols-outlined' style='font-size:18px;transform:rotate(180deg);vertical-align:middle;'>arrow_forward_ios</span></a>
         Subordinate data
